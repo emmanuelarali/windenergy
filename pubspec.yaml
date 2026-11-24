@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.13.1
+  sdk: ^3.10.8
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -37,8 +37,8 @@ dependencies:
   equatable: ^3.0.0
   get_it: ^9.3.0
   mocktail: ^1.0.5
-  google_fonts: ^9.0.0
   supabase_flutter: ^2.18.3
+  google_fonts: ^8.2.1
   mock_supabase_http_client: ^0.1.0
   dotenv: ^4.2.0
   http: ^1.6.0

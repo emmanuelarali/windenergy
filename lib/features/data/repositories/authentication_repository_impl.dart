@@ -7,7 +7,6 @@ class AuthenticationRepositoryImpl extends AuthenticationRepository{
   final DbService dbService;
 
   AuthenticationRepositoryImpl({required this.dbService});
-
   @override
   FutureResult<dynamic> signIn({String email = "", String password = ""}) async {
     try{
