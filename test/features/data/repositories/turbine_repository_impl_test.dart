@@ -19,12 +19,10 @@ void main() {
     turbineRepositoryImpl = TurbineRepositoryImpl(dbService: mockDbService);
   });
 
-  final serialNumber = "1234567890";
-  final customName = "test";
-  final position = const Position(latitude: 10.5, longitude: 10.5);
-  final turbineId = 10;
-
   group("createTurbine", () {
+  final serialNumber = "123";
+  final customName = "test";
+  final position = const Position(latitude: 1.5, longitude: 11.5);
     test("should return Success", () async {when(() => mockDbService.createTurbine(serialNumber: serialNumber, customName: customName, latitude: position.latitude, longitude: position.longitude,
       )).thenAnswer((_) async => Success<int>());
       final result = await turbineRepositoryImpl.createTurbine(serialNumber: serialNumber, customName: customName, position: position);
@@ -39,6 +37,7 @@ void main() {
   });
 
   group("deleteTurbine", () {
+    final turbineId = 5;
     test("should return Success", () async {
       when(() => mockDbService.deleteTurbine(turbineId: turbineId))
           .thenAnswer((_) async => Success());
@@ -72,6 +71,7 @@ void main() {
   });
 
   group("readPairingCode", () {
+    final turbineId = 5;
     test("should return Success", () async {
       when(() => mockDbService.readPairingCode(turbineId: turbineId))
           .thenAnswer((_) async => Success<PairingCode>());
@@ -137,6 +137,9 @@ void main() {
 
   group("updateTurbine", () {
     test("should return Success", () async {
+      final turbineId = 5;
+      final customName = "test";
+      final position = const Position(latitude: 1.5, longitude: 11.5);
       when(() => mockDbService.updateTurbine(
         turbineId: turbineId,
         customName: customName,
@@ -151,6 +154,9 @@ void main() {
     });
 
     test("Should return Error", () async {
+      final turbineId = 10;
+      final customName = "test";
+      final position = const Position(latitude: 1.5, longitude: 11.5);
       when(() => mockDbService.updateTurbine(
         turbineId: turbineId,
         customName: customName,
